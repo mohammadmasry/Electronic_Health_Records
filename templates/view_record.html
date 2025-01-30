@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Medical Record Details</h2>
+    <div class="card">
+        <div class="card-body">
+            <h4>Diagnosis: {{ record.diagnosis }}</h4>
+            <p><strong>Medications:</strong> {{ record.medications }}</p>
+            <p><strong>Allergies:</strong> {{ record.allergies }}</p>
+            <p><strong>Vital Signs:</strong> {{ record.vital_signs }}</p>
+            <p><strong>Treatment Plan:</strong> {{ record.treatment_plan }}</p>
+            <p style="font-weight: bold; font-size: 18px;">Clinical Notes</p>
+            <p>{{ record.description | replace('. ', '.<br>') | safe }}</p>
+            <a href="{{ url_for('medical_records', patient_id=record.patient_id) }}" class="btn btn-secondary">Back</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

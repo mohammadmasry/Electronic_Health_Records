@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    <h1 class="text-center" style="color: white;">Welcome to the Clinical Management App</h1>
+    <div class="row mt-5 justify-content-center">
+        {% if current_user.is_authenticated %}
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Patients</h5>
+                    <p class="card-text">Add, view, or remove patients from the database.</p>
+                    <a href="{{ url_for('add_patient') }}" class="btn btn-primary">Add Patient</a>
+                    <a href="{{ url_for('list_patients') }}" class="btn btn-secondary">List Patients</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add empty space between the card and the text block -->
+        <div class="col-md-3"></div>
+        
+        <div class="col-md-5">
+            <div class="text-left" style="background-color: rgba(22, 120, 181, 0.736); padding: 15px; border-radius: 10px; color: white;">
+                <p>
+                    The Clinical Management App is your all-in-one solution for managing patient records and clinic operations. 
+                    Whether you're a small clinic or a large medical center, our app is designed to simplify your workflow and save you time.
+                </p>
+                <ul>
+                    <li><strong>Streamline Patient Records:</strong> Easily add, update, and access patient information anytime.</li>
+                    <li><strong>Secure and Confidential:</strong> Built with robust security to protect sensitive medical data.</li>
+                    <li><strong>Time-Saving Tools:</strong> Efficiently manage appointments, track patient history, and ensure smooth operations.</li>
+                    <li><strong>User-Friendly Design:</strong> An intuitive interface that anyone can use without extensive training.</li>
+                </ul>
+                <p>
+                    Join thousands of healthcare professionals who trust our app to enhance their practice. Your focus should be on providing care, 
+                    and we handle the rest.
+                </p>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Get Started</h5>
+                    <p class="card-text">
+                        Welcome to the Clinical Management App! Sign in to access a suite of tools designed to help you manage your clinic seamlessly. 
+                        Register now and experience the difference our app can make for your practice.
+                    </p>
+                    <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>   
+                    <a href="{{ url_for('register') }}" class="btn btn-secondary">Register</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

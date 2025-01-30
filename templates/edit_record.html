@@ -1,0 +1,447 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center" style="color: white;">Edit Medical Record for {{ record.patient.name }}</h1>
+    <form method="POST" class="mt-4">
+
+        <div class="form-group">
+            <label for="medications" style="color: white;">Medications</label>
+            <select id="medications" name="medications" class="form-control" >
+                
+                <option value="Acetaminophen">Acetaminophen (Tylenol)</option>
+                <option value="Ibuprofen">Ibuprofen (Advil, Motrin)</option>
+                <option value="Aspirin">Aspirin</option>
+                <option value="Naproxen">Naproxen (Aleve)</option>
+                <option value="Diclofenac">Diclofenac (Voltaren)</option>
+                <option value="Tramadol">Tramadol (Ultram)</option>
+                <option value="Oxycodone">Oxycodone (OxyContin)</option>
+                <option value="Hydrocodone">Hydrocodone (Vicodin, Norco)</option>
+                <option value="Codeine">Codeine</option>
+                <option value="Morphine">Morphine</option>
+                
+                
+                <option value="Amoxicillin">Amoxicillin</option>
+                <option value="Azithromycin">Azithromycin (Zithromax)</option>
+                <option value="Ciprofloxacin">Ciprofloxacin (Cipro)</option>
+                <option value="Levofloxacin">Levofloxacin (Levaquin)</option>
+                <option value="Doxycycline">Doxycycline</option>
+                <option value="Cephalexin">Cephalexin (Keflex)</option>
+                <option value="Penicillin">Penicillin</option>
+                <option value="Clindamycin">Clindamycin</option>
+                <option value="Metronidazole">Metronidazole (Flagyl)</option>
+                <option value="Erythromycin">Erythromycin</option>
+                
+                
+                <option value="Lisinopril">Lisinopril (Zestril, Prinivil)</option>
+                <option value="Amlodipine">Amlodipine (Norvasc)</option>
+                <option value="Losartan">Losartan (Cozaar)</option>
+                <option value="Metoprolol">Metoprolol (Lopressor, Toprol XL)</option>
+                <option value="Hydrochlorothiazide">Hydrochlorothiazide (HCTZ)</option>
+                <option value="Atenolol">Atenolol (Tenormin)</option>
+                <option value="Verapamil">Verapamil (Calan)</option>
+                <option value="Enalapril">Enalapril (Vasotec)</option>
+                <option value="Ramipril">Ramipril (Altace)</option>
+                <option value="Carvedilol">Carvedilol (Coreg)</option>
+                
+
+                <option value="Metformin">Metformin (Glucophage)</option>
+                <option value="Insulin">Insulin (Novolog, Humalog)</option>
+                <option value="Glimepiride">Glimepiride (Amaryl)</option>
+                <option value="Glyburide">Glyburide (Diabeta)</option>
+                <option value="Sitagliptin">Sitagliptin (Januvia)</option>
+                <option value="Glipizide">Glipizide (Glucotrol)</option>
+                <option value="Liraglutide">Liraglutide (Victoza)</option>
+                <option value="Canagliflozin">Canagliflozin (Invokana)</option>
+                <option value="Dapagliflozin">Dapagliflozin (Farxiga)</option>
+                <option value="Pioglitazone">Pioglitazone (Actos)</option>
+                
+                
+                <option value="Fluoxetine">Fluoxetine (Prozac)</option>
+                <option value="Sertraline">Sertraline (Zoloft)</option>
+                <option value="Citalopram">Citalopram (Celexa)</option>
+                <option value="Escitalopram">Escitalopram (Lexapro)</option>
+                <option value="Paroxetine">Paroxetine (Paxil)</option>
+                <option value="Duloxetine">Duloxetine (Cymbalta)</option>
+                <option value="Venlafaxine">Venlafaxine (Effexor)</option>
+                <option value="Trazodone">Trazodone</option>
+                <option value="Bupropion">Bupropion (Wellbutrin)</option>
+                <option value="Lorazepam">Lorazepam (Ativan)</option>
+                
+                
+                <option value="Atorvastatin">Atorvastatin (Lipitor)</option>
+                <option value="Simvastatin">Simvastatin (Zocor)</option>
+                <option value="Rosuvastatin">Rosuvastatin (Crestor)</option>
+                <option value="Pravastatin">Pravastatin (Pravachol)</option>
+                <option value="Lovastatin">Lovastatin (Mevacor)</option>
+                <option value="Ezetimibe">Ezetimibe (Zetia)</option>
+                <option value="Fenofibrate">Fenofibrate (Tricor)</option>
+                <option value="Niacin">Niacin (Niaspan)</option>
+                
+
+                <option value="Albuterol">Albuterol (ProAir, Ventolin)</option>
+                <option value="Salmeterol">Salmeterol (Serevent)</option>
+                <option value="Fluticasone">Fluticasone (Flovent)</option>
+                <option value="Budesonide">Budesonide (Pulmicort)</option>
+                <option value="Montelukast">Montelukast (Singulair)</option>
+                <option value="Ipratropium">Ipratropium (Atrovent)</option>
+                <option value="Theophylline">Theophylline</option>
+                
+                <option value="Warfarin">Warfarin (Coumadin)</option>
+                <option value="Apixaban">Apixaban (Eliquis)</option>
+                <option value="Rivaroxaban">Rivaroxaban (Xarelto)</option>
+                <option value="Dabigatran">Dabigatran (Pradaxa)</option>
+                <option value="Heparin">Heparin</option>
+                <option value="Enoxaparin">Enoxaparin (Lovenox)</option>
+                
+                <option value="Fluconazole">Fluconazole (Diflucan)</option>
+                <option value="Ketoconazole">Ketoconazole</option>
+                <option value="Itraconazole">Itraconazole (Sporanox)</option>
+                <option value="Terbinafine">Terbinafine (Lamisil)</option>
+                
+                <option value="Acyclovir">Acyclovir (Zovirax)</option>
+                <option value="Oseltamivir">Oseltamivir (Tamiflu)</option>
+                <option value="Valacyclovir">Valacyclovir (Valtrex)</option>
+                <option value="Sofosbuvir">Sofosbuvir (Sovaldi)</option>
+                <option value="Remdesivir">Remdesivir (Veklury)</option>
+                
+                <option value="Omeprazole">Omeprazole (Prilosec)</option>
+                <option value="Lansoprazole">Lansoprazole (Prevacid)</option>
+                <option value="Esomeprazole">Esomeprazole (Nexium)</option>
+                <option value="Ranitidine">Ranitidine (Zantac) [Note: some formulations have been recalled]</option>
+                <option value="Metoclopramide">Metoclopramide (Reglan)</option>
+                <option value="Loperamide">Loperamide (Imodium)</option>
+                <option value="Diphenoxylate/Atropine">Diphenoxylate/Atropine (Lomotil)</option>
+                
+                <option value="Diphenhydramine">Diphenhydramine (Benadryl)</option>
+                <option value="Loratadine">Loratadine (Claritin)</option>
+                <option value="Cetirizine">Cetirizine (Zyrtec)</option>
+                <option value="Fexofenadine">Fexofenadine (Allegra)</option>
+                <option value="Desloratadine">Desloratadine (Clarinex)</option>
+                <option value="Hydroxyzine">Hydroxyzine (Vistaril)</option>
+                
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="allergies" style="color: white;">Allergies</label>
+            <select id="allergies" name="allergies" class="form-control" >
+                <option value="Pollen Allergy">Pollen Allergy (Hay Fever)</option>
+                <option value="Dust Mite Allergy">Dust Mite Allergy</option>
+                <option value="Animal Dander Allergy">Animal Dander (Pet Allergy)</option>
+                <option value="Mold Allergy">Mold Allergy</option>
+                <option value="Peanut Allergy">Peanut Allergy</option>
+                <option value="Tree Nut Allergy">Tree Nut Allergy</option>
+                <option value="Milk Allergy">Milk Allergy (Dairy)</option>
+                <option value="Egg Allergy">Egg Allergy</option>
+                <option value="Soy Allergy">Soy Allergy</option>
+                <option value="Wheat Allergy">Wheat Allergy</option>
+                <option value="Fish Allergy">Fish Allergy</option>
+                <option value="Shellfish Allergy">Shellfish Allergy</option>
+                <option value="Gluten Allergy">Gluten Allergy (Celiac Disease)</option>
+                <option value="Insect Sting Allergy">Insect Stings (Bees, Wasps)</option>
+                <option value="Latex Allergy">Latex Allergy</option>
+                <option value="Penicillin Allergy">Penicillin Allergy</option>
+                <option value="Sulfa Drug Allergy">Sulfa Drug Allergy</option>
+                <option value="Antibiotic Allergy">Antibiotic Allergy</option>
+                <option value="Nickel Allergy">Nickel Allergy</option>
+                <option value="Fragrance Allergy">Fragrance Allergy</option>
+                <option value="Poison Ivy Allergy">Poison Ivy, Oak, and Sumac Allergies</option>
+                <option value="Allergic Rhinitis">Allergic Rhinitis</option>
+                <option value="Hives">Hives (Urticaria)</option>
+                <option value="Food Additive Allergy">Food Additive Allergy (e.g., MSG)</option>
+                <option value="Oral Allergy Syndrome">Oral Allergy Syndrome</option>
+                <option value="Chemical Sensitivity">Chemical Sensitivities</option>
+                <option value="Bee Sting Allergy">Bee Sting Allergy</option>
+                <option value="Pollen-Food Syndrome">Pollen/Food Syndrome (Birch, Apple, Carrot)</option>
+                <option value="Drug-Induced Allergy">Drug-Induced Allergy</option>
+                <option value="Aspirin Sensitivity">Aspirin Sensitivity (AERD)</option>
+                <option value="Cold-Induced Urticaria">Cold-Induced Urticaria</option>
+                <option value="Sun Sensitivity">Sun Sensitivity (Solar Urticaria)</option>
+                <option value="Cold-Heat Contact Dermatitis">Cold/Heat Contact Dermatitis</option>
+                <option value="Histamine Intolerance">Histamine Intolerance</option>
+                <option value="Sesame Allergy">Sesame Allergy</option>
+                <option value="Banana Allergy">Banana Allergy</option>
+                <option value="Tomato Allergy">Tomato Allergy</option>
+                <option value="Mustard Allergy">Mustard Allergy</option>
+                <option value="Citrus Allergy">Citrus Allergy</option>
+                <option value="Strawberry Allergy">Strawberry Allergy</option>
+                <option value="Apple Allergy">Apple Allergy</option>
+                <option value="Cucumber Allergy">Cucumber Allergy</option>
+                <option value="Carrot Allergy">Carrot Allergy</option>
+                <option value="Cherry Allergy">Cherry Allergy</option>
+                <option value="Potato Allergy">Potato Allergy</option>
+                <option value="Onion Allergy">Onion Allergy</option>
+                <option value="Garlic Allergy">Garlic Allergy</option>
+                <option value="Coconut Allergy">Coconut Allergy</option>
+                <option value="Rice Allergy">Rice Allergy</option>
+                <option value="Corn Allergy">Corn Allergy</option>
+                <option value="Caviar Allergy">Caviar Allergy</option>
+                <option value="Honey Allergy">Honey Allergy</option>
+                <option value="Spice Allergy">Spice Allergy</option>
+                <option value="Codeine Allergy">Codeine Allergy</option>
+                <option value="Iodine Allergy">Iodine Allergy</option>
+                <option value="Sulfonamide Allergy">Sulfonamide Allergy</option>
+                <option value="Anticonvulsant Allergy">Anticonvulsant Allergy</option>
+                <option value="Antihistamine Allergy">Antihistamine Allergy</option>
+                <option value="Benzodiazepine Allergy">Benzodiazepine Allergy</option>
+                <option value="Local Anesthetic Allergy">Local Anesthetic Allergy</option>
+                <option value="Opioid Allergy">Opioid Allergy</option>
+                <option value="Mosquito Bite Allergy">Mosquito Bite Allergy</option>
+                <option value="Ant Sting Allergy">Ant Sting Allergy</option>
+                <option value="Bedbug Allergy">Bedbug Allergy</option>
+                <option value="Flea Allergy">Flea Allergy</option>
+                <option value="Tick Allergy">Tick Allergy</option>
+                <option value="Mite Allergy">Mite Allergy</option>
+                <option value="Blood Transfusion Allergy">Blood Transfusion Allergy</option>
+                <option value="Vaccine Allergy">Vaccine Allergy</option>
+                <option value="Anesthesia Allergy">Anesthesia Allergy</option>
+                <option value="Steroid Allergy">Steroid Allergy</option>
+                <option value="Alcohol Allergy">Alcohol Allergy</option>
+                <option value="Sunlight Sensitivity">Sunlight Sensitivity</option>
+                <option value="Air Freshener Allergy">Air Freshener Allergy</option>
+                <option value="Formaldehyde Allergy">Formaldehyde Allergy</option>
+                <option value="Preservative Allergy">Preservative Allergy</option>
+                <option value="Artificial Sweetener Allergy">Artificial Sweetener Allergy</option>
+                <option value="Tobacco Smoke Allergy">Tobacco Smoke Allergy</option>
+                <option value="Silicone Allergy">Silicone Allergy</option>
+                <option value="Wool Allergy">Wool Allergy</option>
+                <option value="Leather Allergy">Leather Allergy</option>
+                <option value="Hair Dye Allergy">Hair Dye Allergy</option>
+                <option value="Cleaning Product Allergy">Cleaning Product Allergy</option>
+                <option value="Paint Allergy">Paint Allergy</option>
+                <option value="Cosmetic Allergy">Cosmetic Allergy</option>
+                <option value="Plastic Allergy">Plastic Allergy</option>
+                <option value="Rubber Allergy">Rubber Allergy</option>
+                <option value="Pesticide Allergy">Pesticide Allergy</option>
+                <option value="Fungicide Allergy">Fungicide Allergy</option>
+                <option value="Detergent Allergy">Detergent Allergy</option>
+                <option value="Cement Allergy">Cement Allergy</option>
+                <option value="Asbestos Allergy">Asbestos Allergy</option>
+                
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="vital-signs" style="color: white;">Vital Signs</label>
+            <select id="vital-signs" name="vital_signs" class="form-control" >
+                <option value="Blood Pressure">Blood Pressure</option>
+                <option value="Heart Rate">Heart Rate</option>
+                <option value="Temperature">Temperature</option>
+                <option value="Respiratory Rate">Respiratory Rate</option>
+                <option value="Oxygen Saturation">Oxygen Saturation (SpO2)</option>
+                <option value="Pain Level">Pain Level</option>
+                <option value="Weight">Weight</option>
+                <option value="Height">Height</option>
+                <option value="Blood Glucose">Blood Glucose</option>
+                <option value="Capillary Refill">Capillary Refill Time</option>
+                <option value="Blood Oxygen">Blood Oxygen Levels</option>
+                <option value="Pulse Oximetry">Pulse Oximetry</option>
+                <option value="ECG">ECG (Electrocardiogram)</option>
+                <option value="Glasgow Coma Scale">Glasgow Coma Scale (GCS)</option>
+                <option value="Blood Type">Blood Type</option>
+                <option value="Urine Output">Urine Output</option>
+                <option value="Fluid Balance">Fluid Balance</option>
+                <option value="Oral Temperature">Oral Temperature</option>
+                <option value="Rectal Temperature">Rectal Temperature</option>
+                <option value="Pupil Reaction">Pupil Reaction</option>
+                <option value="Respiratory Effort">Respiratory Effort</option>
+                <option value="Chest Rales">Chest Rales (Rales)</option>
+                <option value="Abdominal Tenderness">Abdominal Tenderness</option>
+                <option value="Jugular Venous Pressure">Jugular Venous Pressure (JVP)</option>
+                <option value="Peripheral Edema">Peripheral Edema</option>
+                <option value="Systolic Blood Pressure">Systolic Blood Pressure</option>
+                <option value="Diastolic Blood Pressure">Diastolic Blood Pressure</option>
+                <option value="Pulse Rate">Pulse Rate</option>
+                <option value="Heart Rhythm">Heart Rhythm</option>
+                <option value="Skin Turgor">Skin Turgor</option>
+                <option value="Bradypnea">Bradypnea (Slow Respirations)</option>
+                <option value="Tachypnea">Tachypnea (Fast Respirations)</option>
+                <option value="Axillary Temperature">Axillary Temperature</option>
+                <option value="Ear Temperature">Ear Temperature</option>
+                <option value="Peak Flow">Peak Flow (Lung Capacity)</option>
+                <option value="Abdominal Girth">Abdominal Girth</option>
+                <option value="Deep Tendon Reflexes">Deep Tendon Reflexes (DTR)</option>
+                <option value="Oxygen Therapy">Oxygen Therapy Level</option>
+                <option value="Dialysis">Dialysis Status</option>
+                
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="diagnosis" style="color: white;">Diagnosis</label>
+            <select id="diagnosis" name="diagnosis" class="form-control" >
+                <option value="hypertension">Hypertension (High Blood Pressure)</option>
+                <option value="diabetes_mellitus">Diabetes Mellitus</option>
+                <option value="coronary_artery_disease">Coronary Artery Disease (CAD)</option>
+                <option value="asthma">Asthma</option>
+                <option value="chronic_obstructive_pulmonary_disease">Chronic Obstructive Pulmonary Disease (COPD)</option>
+                <option value="stroke">Stroke</option>
+                <option value="myocardial_infarction">Myocardial Infarction (Heart Attack)</option>
+                <option value="pneumonia">Pneumonia</option>
+                <option value="anemia">Anemia</option>
+                <option value="sepsis">Sepsis</option>
+                <option value="kidney_failure">Kidney Failure</option>
+                <option value="gastroenteritis">Gastroenteritis</option>
+                <option value="peptic_ulcer_disease">Peptic Ulcer Disease</option>
+                <option value="cerebral_hemorrhage">Cerebral Hemorrhage</option>
+                <option value="deep_vein_thrombosis">Deep Vein Thrombosis (DVT)</option>
+                <option value="pulmonary_embolism">Pulmonary Embolism</option>
+                <option value="congestive_heart_failure">Congestive Heart Failure (CHF)</option>
+                <option value="cholecystitis">Cholecystitis</option>
+                <option value="pancreatitis">Pancreatitis</option>
+                <option value="liver_disease">Liver Disease</option>
+                <option value="cancer">Cancer</option>
+                <option value="hyperthyroidism">Hyperthyroidism</option>
+                <option value="hypothyroidism">Hypothyroidism</option>
+                <option value="pneumothorax">Pneumothorax</option>
+                <option value="renal_stone">Renal Stone (Kidney Stones)</option>
+                <option value="gout">Gout</option>
+                <option value="osteoarthritis">Osteoarthritis</option>
+                <option value="rheumatoid_arthritis">Rheumatoid Arthritis</option>
+                <option value="multiple_sclerosis">Multiple Sclerosis</option>
+                <option value="systemic_lupus_erythematosus">Systemic Lupus Erythematosus</option>
+                <option value="schizophrenia">Schizophrenia</option>
+                <option value="bipolar_disorder">Bipolar Disorder</option>
+                <option value="depression">Depression</option>
+                <option value="anxiety_disorder">Anxiety Disorder</option>
+                <option value="ptsd">Post-Traumatic Stress Disorder (PTSD)</option>
+                <option value="autism_spectrum_disorder">Autism Spectrum Disorder (ASD)</option>
+                <option value="obesity">Obesity</option>
+                <option value="urinary_tract_infection">Urinary Tract Infection (UTI)</option>
+                <option value="gonorrhea">Gonorrhea</option>
+                <option value="chlamydia">Chlamydia</option>
+                <option value="herpes">Herpes Simplex Virus (HSV)</option>
+                <option value="syphilis">Syphilis</option>
+                <option value="hepatitis_b">Hepatitis B</option>
+                <option value="hepatitis_c">Hepatitis C</option>
+                <option value="acne">Acne</option>
+                <option value="psoriasis">Psoriasis</option>
+                <option value="eczema">Eczema</option>
+                <option value="dermatitis">Dermatitis</option>
+                <option value="vaginitis">Vaginitis</option>
+                <option value="gallstones">Gallstones</option>
+                <option value="influenza">Influenza (Flu)</option>
+                <option value="tuberculosis">Tuberculosis (TB)</option>
+                <option value="measles">Measles</option>
+                <option value="hepatitis_a">Hepatitis A</option>
+                <option value="chickenpox">Chickenpox</option>
+                <option value="malaria">Malaria</option>
+                <option value="lyme_disease">Lyme Disease</option>
+                <option value="whooping_cough">Whooping Cough (Pertussis)</option>
+                <option value="dengue_fever">Dengue Fever</option>
+                <option value="zika_virus">Zika Virus</option>
+                <option value="ebola">Ebola</option>
+                <option value="tetanus">Tetanus</option>
+                <option value="rabies">Rabies</option>
+                <option value="bacterial_vaginosis">Bacterial Vaginosis</option>
+                <option value="candidiasis">Candidiasis</option>
+                <option value="chronic_kidney_disease">Chronic Kidney Disease</option>
+                <option value="colitis">Colitis</option>
+                <option value="diverticulitis">Diverticulitis</option>
+                <option value="irritable_bowel_syndrome">Irritable Bowel Syndrome (IBS)</option>
+                <option value="inflammatory_bowel_disease">Inflammatory Bowel Disease (IBD)</option>
+                <option value="crohns_disease">Crohn's Disease</option>
+                <option value="ulcerative_colitis">Ulcerative Colitis</option>
+                <option value="epilepsy">Epilepsy</option>
+                <option value="parkinsons_disease">Parkinson's Disease</option>
+                <option value="alzheimer_disease">Alzheimer's Disease</option>
+                <option value="migraine">Migraine</option>
+                <option value="vertigo">Vertigo</option>
+                <option value="fibromyalgia">Fibromyalgia</option>
+                <option value="carpal_tunnel_syndrome">Carpal Tunnel Syndrome</option>
+                <option value="chronic_fatigue_syndrome">Chronic Fatigue Syndrome</option>
+                <option value="sickle_cell_anemia">Sickle Cell Anemia</option>
+                <option value="thalassemia">Thalassemia</option>
+                <option value="hemophilia">Hemophilia</option>
+                <option value="vitamin_d_deficiency">Vitamin D Deficiency</option>
+                <option value="vitamin_b12_deficiency">Vitamin B12 Deficiency</option>
+                <option value="iron_deficiency">Iron Deficiency</option>
+                <option value="hyperkalemia">Hyperkalemia</option>
+                <option value="hypokalemia">Hypokalemia</option>
+                <option value="hypernatremia">Hypernatremia</option>
+                <option value="hyponatremia">Hyponatremia</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="treatment" style="color: white;">Treatment Plan</label>
+            <select id="treatment" name="treatment_plan" class="form-control">
+                <option value="antibiotics">Antibiotics</option>
+                <option value="antiviral">Antiviral Medications</option>
+                <option value="pain_management">Pain Management (Analgesics)</option>
+                <option value="physical_therapy">Physical Therapy</option>
+                <option value="surgical_intervention">Surgical Intervention</option>
+                <option value="chemotherapy">Chemotherapy</option>
+                <option value="radiotherapy">Radiotherapy</option>
+                <option value="hormone_therapy">Hormone Therapy</option>
+                <option value="insulin_therapy">Insulin Therapy</option>
+                <option value="antihypertensives">Antihypertensive Medications</option>
+                <option value="diuretics">Diuretics</option>
+                <option value="statins">Statins (for Cholesterol Management)</option>
+                <option value="antidepressants">Antidepressants</option>
+                <option value="antianxiety_medications">Antianxiety Medications</option>
+                <option value="antipsychotics">Antipsychotic Medications</option>
+                <option value="beta_blockers">Beta-Blockers</option>
+                <option value="ace_inhibitors">ACE Inhibitors</option>
+                <option value="calcium_channel_blockers">Calcium Channel Blockers</option>
+                <option value="corticosteroids">Corticosteroids</option>
+                <option value="immunotherapy">Immunotherapy</option>
+                <option value="anticoagulants">Anticoagulants (Blood Thinners)</option>
+                <option value="antiplatelet_therapy">Antiplatelet Therapy</option>
+                <option value="oral_contraceptives">Oral Contraceptives</option>
+                <option value="vaccination">Vaccination</option>
+                <option value="wound_dressing">Wound Dressing and Care</option>
+                <option value="dialysis">Dialysis</option>
+                <option value="blood_transfusion">Blood Transfusion</option>
+                <option value="oxygen_therapy">Oxygen Therapy</option>
+                <option value="dietary_changes">Dietary Changes</option>
+                <option value="weight_management">Weight Management</option>
+                <option value="quit_smoking_program">Smoking Cessation Program</option>
+                <option value="physical_exercise">Physical Exercise/Exercise Therapy</option>
+                <option value="splinting">Splinting</option>
+                <option value="chiropractic_care">Chiropractic Care</option>
+                <option value="acupuncture">Acupuncture</option>
+                <option value="psychotherapy">Psychotherapy (Talk Therapy)</option>
+                <option value="cognitive_therapy">Cognitive Behavioral Therapy (CBT)</option>
+                <option value="deep_brain_stimulation">Deep Brain Stimulation</option>
+                <option value="gene_therapy">Gene Therapy</option>
+                <option value="stem_cell_therapy">Stem Cell Therapy</option>
+                <option value="botox_injections">Botox Injections</option>
+                <option value="laser_surgery">Laser Surgery</option>
+                <option value="arthroscopy">Arthroscopy</option>
+                <option value="endoscopy">Endoscopy</option>
+                <option value="gastrostomy">Gastrostomy</option>
+                <option value="tracheostomy">Tracheostomy</option>
+                <option value="intravenous_fluid_therapy">Intravenous Fluid Therapy</option>
+                <option value="pharmacologic_therapy">Pharmacologic Therapy</option>
+                <option value="psychiatric_hospitalization">Psychiatric Hospitalization</option>
+                <option value="laser_therapy">Laser Therapy</option>
+                <option value="surgical_resection">Surgical Resection</option>
+                <option value="joint_replacement">Joint Replacement</option>
+                <option value="spinal_fusion">Spinal Fusion</option>
+                <option value="implantable_devices">Implantable Devices (e.g., Pacemakers)</option>
+                <option value="steroid_injections">Steroid Injections</option>
+                <option value="exercise_programs">Exercise Programs</option>
+                <option value="neurostimulation">Neurostimulation</option>
+                <option value="chemotherapy_radiotherapy_combination">Chemotherapy and Radiotherapy Combination</option>
+                <option value="psychotropic_medication">Psychotropic Medication</option>
+                <option value="topical_treatment">Topical Treatments</option>
+                <option value="cryotherapy">Cryotherapy</option>
+                <option value="plasma_exchange">Plasma Exchange</option>
+                <option value="recombinant_human_insulin">Recombinant Human Insulin</option>
+                <option value="pheresis_therapy">Pheresis Therapy</option>
+                <option value="reconstructive_surgery">Reconstructive Surgery</option>
+            </select>
+        </div>
+
+        <label>Description:</label>
+        <textarea name="description" rows="5" placeholder="Describe the treatment process..." class="form-control"></textarea>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a href="{{ url_for('medical_records', patient_id=record.patient_id) }}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

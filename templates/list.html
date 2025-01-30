@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center" style="color: white;">List of Patients</h2>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th style="color: white;">ID</th>
+                <th style="color: white;">Name</th>
+                <th style="color: white;">Gender</th>
+                <th style="color: white;">Blood Type</th>
+                <th style="color: white;">Birthday</th>
+                <th style="color: white;">Record</th>
+                <th style="color: white;">Edit</th>  <!-- Add this column header -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+            <tr>
+                <td style="color: white;">{{ patient.id }}</td>
+                <td style="color: white;">{{ patient.name }}</td>
+                <td style="color: white;">{{ patient.gender }}</td>
+                <td style="color: white;">{{ patient.blood_type }}</td>
+                <td style="color: white;">{{ patient.birth_date }}</td>
+                <td>
+                    <a href="{{ url_for('medical_records', patient_id=patient.id) }}" class="btn btn-primary btn-sm">View</a>
+                </td>
+                <td> <!-- Add this column for Edit button -->
+                    <a href="{{ url_for('edit_patient', patient_id=patient.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if not patients %}
+        <p class="text-center text-muted" style="color: white;">No patients found. Add your first patient using the "Add Patient" option.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center text-danger" style="color: white;" >Delete Record</h2>
+    <p>Are you sure you want to delete the record with ID: <strong>{{ record.id }}</strong>?</p>
+    <p><strong>Details:</strong> {{ record.details }}</p>
+
+    <form method="POST" action="{{ url_for('confirm_delete_record', record_id=record.id) }}">
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a href="{{ url_for('medical_records', patient_id=record.patient_id) }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

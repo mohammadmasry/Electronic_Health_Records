@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    table {
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    th, td {
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
+        padding: 10px;
+        vertical-align: middle; /* Align text in the middle */
+    }
+
+    /* Optional: Add a shadow around each row */
+    tbody tr {
+        background-color: rgba(255, 255, 255, 0.1); /* Light transparent background */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+        border-radius: 5px;
+    }
+
+    /* Ensure long descriptions do not break the table */
+    td.description {
+        max-width: 300px;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2 class="text-center" style="color: white;">Medical Records for Patient {{ patient.name }}</h2>
+
+    <div class="text-end mb-3">
+        <a href="{{ url_for('add_record', patient_id=patient.id) }}" class="btn btn-primary btn-sm">Add Record</a>
+    </div>
+    
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th style="color: white;">Record ID</th>
+                <th style="color: white;">Medications</th>
+                <th style="color: white;">Allergies</th>
+                <th style="color: white;">Vital Signs</th>
+                <th style="color: white;">Diagnosis</th>
+                <th style="color: white;">Treatment Plan</th>
+                <th style="color: white;">Description</th> <!-- Fixed placement -->
+                <th style="color: white;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in medical_records %}
+            <tr>
+                <td>{{ record.id }}</td>
+                <td>{{ record.medications }}</td>
+                <td>{{ record.allergies }}</td>
+                <td>{{ record.vital_signs }}</td>
+                <td>{{ record.diagnosis }}</td>
+                <td>{{ record.treatment_plan }}</td>
+                <td class="description">
+                    {{ record.description[:50] }}...
+                    <a href="{{ url_for('view_record', record_id=record.id) }}" class="text-primary">Read More</a>
+                </td>
+                                <td>
+                    <form method="POST" action="{{ url_for('delete_record', record_id=record.id) }}" style="display: inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                    <a href="{{ url_for('edit_record', record_id=record.id) }}" class="btn btn-primary btn-sm">Edit</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    {% if not medical_records %}
+        <p class="text-center" style="color: rgb(251, 249, 249);">No records found for this patient.</p>
+    {% endif %}
+</div>
+{% endblock %}

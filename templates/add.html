@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center" style="color: white;" >Add Patient</h2>
+    
+    <form method="POST" class="mt-4">
+        {{ form.hidden_tag() }}
+        
+        <!-- Name Field -->
+        <div class="form-group">
+            <label for="name" style="color: white;" >{{ form.name.label }}</label>
+            {{ form.name(class="form-control", id="name", placeholder="Enter patient's name") }}
+        </div>
+        
+        <!-- Gender Field -->
+        <div class="form-group">
+            <label for="gender" style="color: white;" >{{ form.gender.label }}</label>
+            {{ form.gender(class="form-control", id="gender") }}
+        </div>
+        
+        <!-- Blood Type Field -->
+        <div class="form-group">
+            <label for="blood_type" style="color: white;" >{{ form.blood_type.label }}</label>
+            {{ form.blood_type(class="form-control", id="blood_type") }}
+        </div>
+
+        <!-- Birth Date Field -->
+        <div class="form-group">
+            <label for="birth_date" style="color: white;"  >{{ form.birth_date.label }}</label>
+            {{ form.birth_date(class="form-control", id="birth_date", placeholder="YYYY-MM-DD") }}
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Add Patient</button>
+    </form>
+</div>
+{% endblock %}
