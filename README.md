@@ -28,7 +28,7 @@ Ensure you have the following installed:
 
 ### **Step 1: Clone the Repository**  
 ```bash
-git clone https://github.com/yourusername/Electronic_Health_Records.git
+git clone https://github.com/mohammadmasry/Electronic_Health_Records.git
 cd Electronic_Health_Records
 ```
 
